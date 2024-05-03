@@ -1,0 +1,4 @@
+make
+pip install django-celery-results
+pip install redis==5.0.4
+celery -A root worker -l INFO
