@@ -67,14 +67,33 @@
 <body>
 <div class="main">
     <h2>Registration Form</h2>
-    <form action="">
+    <form action="{% url 'register_page' %}" method="post">
+        {% csrf_token %}
         <label for="first"
         >First Name:</label
         >
         <input
                 type="text"
                 id="first"
-                name="first"
+                name="username"
+                required
+        />
+        <label for="last"
+        >Last Name:</label
+        >
+        <input
+                type="text"
+                id="first"
+                name="username"
+                required
+        />
+        <label for="username"
+        >Username:</label
+        >
+        <input
+                type="text"
+                id="first"
+                name="username"
                 required
         />
         
@@ -101,7 +120,6 @@
         <input
                 type="password"
                 id="repassword"
-                name="repassword"
                 required
         />
         

@@ -1,9 +1,19 @@
-from django.views.generic import ListView
+from urllib import request
 
-from apps.models import Contact
+from django.views.generic import CreateView, DetailView
+
+from apps.forms import RegisterFormModel
+from apps.models import Profile
 
 
-class ContactListView(ListView):
-    queryset = Contact.objects.order_by('-id')
-    template_name = 'index.html'
-    context_object_name = 'contacts'
+class ProfileDetailView(DetailView):
+    is_authenticated = True
+    queryset = Profile.objects.all()
+    template_name = 'detail.html'
+    context_object_name = 'profiles'
+
+
+class RegisterView(CreateView):
+    template_name = 'register.html'
+    form_class = RegisterFormModel
+    success_url = 'login'
